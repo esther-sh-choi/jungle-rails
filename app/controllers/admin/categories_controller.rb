@@ -12,10 +12,15 @@ class Admin::CategoriesController < ApplicationController
   def create
     @category = Category.new(category_params)
 
-    if @category.save
-      redirect_to [:admin, :categories], method: :get, notice: 'Category created!'
+    if @category.valid?
+      if @category.save
+        redirect_to [:admin, :categories], method: :get, notice: 'Category created!'
+      else
+        render :new
+      end
     else
-      render :new
+      redirect_to new_admin_category_path, flash: { error: @category }
+      # .errors.full_messages.first
     end
   end
 

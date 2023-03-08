@@ -16,12 +16,18 @@ Rails.application.routes.draw do
     root to: 'dashboard#show'
     resources :products, except: [:edit, :update, :show]
     resources :categories, only: [:index, :new, :create]
-    #           admin_categories GET    /admin/categories(.:format)                                                                       admin/categories#index
-    # POST   /admin/categories(.:format)                                                                       admin/categories#create
-    # new_admin_category GET    /admin/categories/new(.:format)
   end
 
   resources :about, only: [:index]
+
+  get '/signup' =>  'users#new'
+  post '/users' =>  'users#create'
+
+  get '/login' =>  'sessions#new'
+  post '/login' =>  'sessions#create'
+  get '/logout' =>  'sessions#destroy'
+
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

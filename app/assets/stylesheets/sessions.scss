@@ -1,0 +1,23 @@
+main section.login-new {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 50px 0;
+
+  form {
+    display: flex;
+    flex-direction: column;
+    width: 700px;
+
+    input#email,
+    input#password {
+      max-width: 80vw;
+    }
+
+    input.btn {
+      margin-top: 30px;
+      width: 150px;
+      align-self: flex-end;
+    }
+  }
+}

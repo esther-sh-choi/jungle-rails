@@ -1,0 +1,23 @@
+main section.signup-new {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 50px 0;
+
+  form {
+    display: flex;
+    flex-direction: column;
+    width: 700px;
+
+    input {
+      max-width: 80vw;
+      margin-bottom: 10px;
+    }
+
+    input.btn {
+      margin-top: 30px;
+      width: 150px;
+      align-self: flex-end;
+    }
+  }
+}
