@@ -1,2 +1,22 @@
-<h1>Admin::Dashboard#show</h1>
-<p>Find me in app/views/admin/dashboard/show.html.erb</p>
+<section class="admin-dashboard-show" />
+  <h1>Admin Dashboard</h1>
+
+  <div class="dashboard"> 
+    <article class="dashboard-item">
+      <div>
+        <h3>Number of Products</h3>
+        <h2><%= @products.length %></h2>
+      </div>
+    </article>
+
+    <article class="dashboard-item">
+      <div>
+        <h3>Number of Categories</h3>
+        <h2><%= @categories.length %></h2>
+      </div>
+    </article>
+  </div>
+
+  <%= button_to 'Detail Page', [:admin, :products], method: :get, class: 'btn btn-success detail-btn' %>
+  <% #button_to 'Detail Page', admin_products_path, method: :get, class: 'btn btn-success detail-btn' %>
+</section>
