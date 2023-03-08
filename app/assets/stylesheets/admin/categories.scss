@@ -1,2 +1,10 @@
-main section.admin-categories-index {
+main section.admin-categories-index,
+section.admin-categories-new {
+  ul {
+    margin: 20px 0;
+  }
+
+  .form-group {
+    margin: 20px 0;
+  }
 }
