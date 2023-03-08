@@ -15,6 +15,10 @@ Rails.application.routes.draw do
   namespace :admin do
     root to: 'dashboard#show'
     resources :products, except: [:edit, :update, :show]
+    resources :categories, only: [:index, :new, :create]
+    #           admin_categories GET    /admin/categories(.:format)                                                                       admin/categories#index
+    # POST   /admin/categories(.:format)                                                                       admin/categories#create
+    # new_admin_category GET    /admin/categories/new(.:format)
   end
 
   resources :about, only: [:index]
