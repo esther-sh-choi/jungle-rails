@@ -39,4 +39,9 @@ class ApplicationController < ActionController::Base
     redirect_to '/login' unless current_user
   end
 
+  def current_sale
+    @current_sale = Sale.where("start_date <= ? AND end_date >= ?", Date.current, Date.current).first
+  end
+  helper_method :current_sale
+
 end
