@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  namespace :admin do
+    get 'sales/index'
+  end
   root to: 'products#index'
 
   resources :products, only: [:index, :show]
@@ -16,6 +19,7 @@ Rails.application.routes.draw do
     root to: 'dashboard#show'
     resources :products, except: [:edit, :update, :show]
     resources :categories, only: [:index, :new, :create]
+    resources :sales, only: [:index, :new, :destroy]
   end
 
   resources :about, only: [:index]
@@ -26,6 +30,8 @@ Rails.application.routes.draw do
   get '/login' =>  'sessions#new'
   post '/login' =>  'sessions#create'
   get '/logout' =>  'sessions#destroy'
+
+
 
 
 
