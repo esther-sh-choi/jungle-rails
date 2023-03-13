@@ -7,17 +7,6 @@ RSpec.describe Product, type: :model do
   describe "Validations" do
     before do
       @category = Category.create(name: 'Tree')
-    #   @product = Product.new(
-    #     name: "Elder Tree",
-    #     price_cents: 100000,
-    #     quantity: 10,
-    #     category: @category,
-    #     id: 1,
-    #     description: "This is a magical tree.",
-    #     image: "https://static.wikia.nocookie.net/snitchseekerrpg/images/d/d5/13_elder.jpg/revision/latest?cb=20110921173335",
-    #     created_at: DateTime.now,
-    #     updated_at: DateTime.now
-    #   )
     end
 
     it 'should save successfully with all four columns' do
