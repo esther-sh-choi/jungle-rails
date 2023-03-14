@@ -1,6 +1,7 @@
 class Admin::SalesController < ApplicationController
   http_basic_authenticate_with name: ENV['ADMIN_USERNAME'], password: ENV['ADMIN_PASSWORD']
   
+  
   def index
     @sales = Sale.all
   end
@@ -9,10 +10,12 @@ class Admin::SalesController < ApplicationController
     @sale = Sale.new
   end
 
-  def created
+  def create
     @sale = Sale.new(sale_params)
+
     if @sale.valid?
-      redirect_to admin_sales, notice: 'You added a new promotion!'
+      @sale.save
+      redirect_to admin_sales_path, notice: 'You added a new promotion!'
     else
       redirect_to new_admin_sale
     end
