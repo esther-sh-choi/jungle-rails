@@ -47,10 +47,21 @@ describe("Add to cart feature", () => {
 
       cy.get("section.login-new h1").should("have.text", "Login");
     });
-  });
 
-  // it("My Cart item count does not increase when clicking on 'Add' button for sold out product", () => {
-  //   cy.get(".products form button.btn").last().click({ force: true });
-  //   cy.get("a[href='/cart']").should("include.text", "1");
-  // });
+    it("Redirect to homepage when login is successful and logout with an existing user", () => {
+      cy.get("#navbarDropdownUser").click();
+      cy.get("a[href='/login']").click();
+      cy.get("section.login-new h1").should("have.text", "Login");
+
+      cy.get("form").find('[type="text"]#email').type("bob@email.com");
+      cy.get("form").find('[type="password"]#password').type("password");
+      cy.get('[type="submit"][name="commit"]').click();
+
+      cy.get("#navbarDropdownUser span").should("have.text", "Bob");
+      cy.get("#navbarDropdownUser").click();
+      cy.get("a[href='/logout']").click();
+
+      cy.get("section.login-new h1").should("have.text", "Login");
+    });
+  });
 });
