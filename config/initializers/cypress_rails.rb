@@ -1,10 +1,12 @@
 require 'database_cleaner/active_record'
 DatabaseCleaner.strategy = :truncation
 
+
 return unless Rails.env.test?
 
 CypressRails.hooks.before_server_start do
   # Called once, before either the transaction or the server is started
+
   cat1 = Category.find_or_create_by! name: 'Evergreens'
 
   cat1.products.create!({
@@ -24,7 +26,7 @@ CypressRails.hooks.before_server_start do
     price: 24.99
   })
 
- 
+  user = User.create!(name: "Bob", email: "bob@email.com", password: "password", password_confirmation: "password")
 end
 
 CypressRails.hooks.after_transaction_start do
