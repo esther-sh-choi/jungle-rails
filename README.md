@@ -1,6 +1,46 @@
 # Jungle
 
-A mini e-commerce application built with Rails 6.1 for purposes of teaching Rails by example.
+The purpose of this project was to add additional features, fix bugs, and add testing to an exisitng mini e-commerce application built with Rails 6.1.
+
+This is to simulate a job where I will be required to add on to, fix, and test and exisiting application. Even when the code base and language is not familiar.
+
+# Features Added
+
+## 1. Sold Out Badge
+
+- When product quantity is 0, a sold out badge is displayed on the sold out item on the project list page.
+
+## 2. Admin Categories
+
+- Admin users can list and create new category of plants to sell.
+- Admins can add new products to sell using the new category created.
+- New category get displayed on the navbar automatically.
+
+## 3. User Authentication
+
+- Allow visitor to access registration/login page from anywhere on the website through the navbar.
+- Visitors can sign up with email, password, and name.
+- Visitors can sign in using email and password.
+- When logged in, their name will be displayed on the navbar and the `login` and `signup` buttons will be switched to `logout` button.
+
+## 4. Order Detail Page
+
+- Order page displays details about the image, name, description, quantities, and total price of each item.
+- Displays the email of the purchaser.
+- Displays total price of all items.
+
+## 5. Add Admin Security
+
+- Only users that login via HTTP auth login/password can gain access to Admin functionality.
+
+## 6. Checking Out with Empty Cart
+
+- When cart is empty, stripe checkout button and table that displays product content is not shown.
+- Instead, a friendly message and a link to Home page is shown.
+
+## 7. Add Automated Tests
+
+- Rspec and Cypress was used to implement unit test and end-to-end test
 
 ## Setup
 
